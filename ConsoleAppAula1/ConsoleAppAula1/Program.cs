@@ -1,4 +1,5 @@
-﻿/*Comparar idades
+﻿#region Comparar idades
+/*
 
 int idade;
 Console.WriteLine("Informe sua idade!");
@@ -19,9 +20,10 @@ else
 
 //Console.WriteLine($"Sua idade é {idade}");
 */
+#endregion
 
-
-/*Salário mínimo ou salário comum
+#region Salário mínimo ou salário comum
+/*
 
 const decimal salarioMinimo = 1518m;
 decimal salarioUsuario;
@@ -42,19 +44,16 @@ else
     Console.WriteLine($"O usúario NÃo recebe o salário mínimo. {salarioUsuario:C}");
 };
 */
+#endregion
 
+#region Variáveis
+    float num1 = 0f;
+    float num2 = 0f;
+    string operacaoMatematica;
+    string opcao;
 
-
-
-
-
-float num1 = 0f;
-float num2 = 0f;
-string operacaoMatematica;
-
-do
-{
-       Console.WriteLine("Informe a operação desejada: \n" + "'+' para adição | '-' para subtração | '*' para multiplicação | '/' para divisão | 's' para sair");
+while (true) { 
+    Console.WriteLine("Informe a operação desejada: \n" + "'+' para adição | '-' para subtração | '*' para multiplicação | '/' para divisão");
 
     operacaoMatematica = Console.ReadLine();
 
@@ -64,21 +63,62 @@ do
 
     Console.WriteLine("Informe o segundo valor");
     num2 = float.Parse(Console.ReadLine());
+    #endregion
 
-    if (operacaoMatematica == "+")
+    #region Estrutura IF
+    /*
+        if (operacaoMatematica == "+")
+        {
+            Console.WriteLine($"Adição: {(num1 + num2):F2}");
+        }
+        else if (operacaoMatematica == "-")
+        {
+            Console.WriteLine($"Subtração: {(num1 - num2):F2}");
+        }
+        else if (operacaoMatematica == "*")
+        {
+            Console.WriteLine($"Multiplicação: {(num1 * num2):F2}");
+        }
+        else if (operacaoMatematica == "/")
+        {
+            Console.WriteLine($"Divisão: {(num1 / num2):F2}");
+        }
+    */
+    #endregion
+
+    #region Estrutura Switch
+
+    switch (operacaoMatematica)
     {
-        Console.WriteLine($"Adição: {(num1 + num2):F2}");
+        case ("+"):
+            Console.WriteLine($"Soma: {(num1 + num2):F2}");
+            break;
+
+        case ("-"):
+            Console.WriteLine($"Subtração: {(num1 - num2):F2}");
+            break;
+
+        case ("*"):
+            Console.WriteLine($"Multiplicação: {(num1 * num2):F2}");
+            break;
+
+        case ("/"):
+            Console.WriteLine($"Divisão: {(num1 / num2):F2}");
+            break;
+        default:
+            Console.WriteLine($"Insira uma opção válida!");
+            break;
     }
-    else if (operacaoMatematica == "-")
+
+    Console.WriteLine("Deseja continuar s/n?");
+    opcao = Console.ReadLine();
+
+    if (opcao != "s")
     {
-        Console.WriteLine($"Subtração: {(num1 - num2):F2}");
-    }
-    else if (operacaoMatematica == "*")
+        break;
+    }else
     {
-        Console.WriteLine($"Multiplicação: {(num1 * num2):F2}");
+        Console.Clear();
     }
-    else if (operacaoMatematica == "/")
-    {
-        Console.WriteLine($"Divisão: {(num1 / num2):F2}");
-    }
-} while (operacaoMatematica != "s");
+}
+#endregion
